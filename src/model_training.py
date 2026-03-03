@@ -1,5 +1,3 @@
-# model_training.py
-
 import pandas as pd
 import joblib
 from sklearn.model_selection import train_test_split
@@ -9,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 def train_model():
 
     # Load dataset
-    data = pd.read_csv("insurance.csv")
+    data = pd.read_csv(r"C:\Users\sumit\Downloads\insurance.csv")
 
     # Encode smoker column (yes=1, no=0)
     data['smoker'] = data['smoker'].map({'yes': 1, 'no': 0})
@@ -27,5 +25,12 @@ def train_model():
     model = LinearRegression()
     model.fit(X_train, y_train)
 
-print("Model training completed successfully.")
+    # Save trained model
+    joblib.dump(model, "health_model.pkl")
 
+    print("Model training completed successfully.")
+    print("Trained model saved as health_model.pkl")
+
+
+if __name__ == "__main__":
+    train_model()
