@@ -9,7 +9,7 @@ from sklearn.linear_model import LinearRegression
 def train_model():
 
     # Load dataset
-    data = pd.read_csv(r"C:\Users\sumit\Downloads\insurance.csv")
+    data = pd.read_csv("insurance.csv")
 
     # Encode smoker column (yes=1, no=0)
     data['smoker'] = data['smoker'].map({'yes': 1, 'no': 0})
